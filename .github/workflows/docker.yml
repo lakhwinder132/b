@@ -30,7 +30,7 @@ jobs:
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY}}" > ~/ssh_key
         chmod 600 ~/ssh_key
-        ssh -o StrictHostKeyChecking=no -i ~/ssh_key azureuser@20.189.114.185"
+        ssh -o StrictHostKeyChecking=no -i ~/ssh_key azureuser@20.189.114.185 "
            docker stop backend || true
            docker rm backend || true
            docker run --name backend -d -p 3000:3000 lakhwinder97187/new:${{ github.sha }}
